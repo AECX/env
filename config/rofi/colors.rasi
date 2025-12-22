@@ -1,0 +1,22 @@
+
+* {
+    bg:             rgba(14, 14, 17, 97%);
+    bg-raised:      rgba(23, 23, 28, 88%);
+    bg-alt:         rgba(28, 28, 34, 96%);
+    fg:             #f2f2f5;
+    fg-dim:         #8b8b97;
+
+    accent:         #7aa2f7;
+    accent-soft:    rgba(122, 162, 247, 15%);
+    accent-purple:  #9575cd;
+    accent-green:   #8bd49c;
+    accent-red:     #ff6c6c;
+    accent-yellow:  #e0af68;
+
+    border-color:   rgba(255, 255, 255, 11%);
+    border-strong:  rgba(255, 255, 255, 14%);
+    scrim:          rgba(6, 6, 9, 58%);
+
+    on-accent:      #0d1017;
+}
+

@@ -1,0 +1,10 @@
+<Project>
+  <!--
+    Imported into every project the Roslyn LSP loads, via CustomAfterMicrosoftCommonTargets (see
+    lua/plugins/roslyn.lua). Later targets replace earlier ones with the same name.
+
+    Surveillance.csproj runs powershell.exe before CoreCompile. Design-time builds run that target
+    too, so on Linux it fails and Roslyn loads the project without its sources and .editorconfig.
+  -->
+  <Target Name="PreBuildScript" />
+</Project>

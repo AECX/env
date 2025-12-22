@@ -1,0 +1,251 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 34,
+
+  "margin-top": 6,
+  "margin-left": 10,
+  "margin-right": 10,
+  "spacing": 6,
+
+  "output": [
+    "DP-1",
+    "HDMI-A-1"
+  ],
+
+  "modules-left": [
+    "custom/launcher",
+    "hyprland/workspaces",
+    "hyprland/window",
+    "group/sysinfo"
+  ],
+
+  "modules-center": [
+    "group/time"
+  ],
+
+  "modules-right": [
+    "mpris",
+    "custom/weather",
+    "group/connectivity",
+    "group/audio",
+    "custom/kb_layout",
+    "custom/nightlight",
+    "tray",
+    "custom/power"
+  ],
+
+  "custom/launcher": {
+    "format": "",
+    "tooltip-format": "Applications",
+    "on-click": "rofi -show drun -theme ~/.config/rofi/theme.rasi -show-icons"
+  },
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "on-click": "activate",
+    "sort-by-number": true,
+    "active-only": false,
+    "all-outputs": false,
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": []
+    }
+  },
+
+  "hyprland/window": {
+    "format": "{title}",
+    "max-length": 50,
+    "separate-outputs": true
+  },
+
+  "clock": {
+    "format": "{0:%H:%M}  {0:%a, %d %b}",
+    "interval": 30,
+    "tooltip-format": "<big>{:%Y %B %d}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  "group/time": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/stopwatch",
+      "clock",
+      "custom/timer"
+    ]
+  },
+
+  "custom/stopwatch": {
+    "exec": "~/env/scripts/stopwatch.sh --waybar",
+    "return-type": "json",
+    "interval": 1,
+    "on-click": "~/env/scripts/stopwatch.sh --toggle",
+    "on-click-right": "~/env/scripts/stopwatch.sh --reset",
+    "format": "{}"
+  },
+
+  "custom/timer": {
+    "exec": "~/env/scripts/timer.sh --waybar",
+    "return-type": "json",
+    "interval": 1,
+    "on-click": "~/env/scripts/timer.sh",
+    "on-click-right": "~/env/scripts/timer.sh --cancel",
+    "format": "{}"
+  },
+
+  "mpris": {
+    "format": "{status_icon} {dynamic}",
+    "format-paused": "{status_icon} {dynamic}",
+    "status-icons": {
+      "playing": "",
+      "paused": "",
+      "stopped": "󰓛"
+    },
+    "max-length": 36,
+    "dynamic-len": 30,
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    "tooltip-format": "{player}: {dynamic}"
+  },
+
+  "group/sysinfo": {
+    "orientation": "horizontal",
+    "modules": [
+      "cpu",
+      "memory"
+    ]
+  },
+
+  "cpu": {
+    "format": " {usage}%",
+    "interval": 5,
+    "tooltip": false
+  },
+
+  "memory": {
+    "format": "󰍛 {percentage}%",
+    "interval": 5,
+    "tooltip-format": "RAM: {used:0.1f} GiB / {total:0.1f} GiB"
+  },
+
+  "custom/weather": {
+    "exec": "~/env/scripts/weather.sh",
+    "return-type": "json",
+    "interval": 900,
+    "tooltip": true
+  },
+
+  "group/connectivity": {
+    "orientation": "horizontal",
+    "modules": [
+      "network",
+      "custom/vpn"
+    ]
+  },
+
+  "network": {
+    "format-wifi": "󰤨  {essid}",
+    "format-ethernet": "󰈀  Wired",
+    "format-disconnected": "󰤭  Offline",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+    "tooltip-format-disconnected": "Disconnected"
+  },
+
+  "bluetooth": {
+    "format": " {status}",
+    "format-connected": " {device_alias}",
+    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    "format-disabled": " off",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "blueman-manager"
+  },
+
+  "custom/vpn": {
+    "exec": "~/env/scripts/vpn-toggle.sh",
+    "interval": 5,
+    "signal": 8,
+    "on-click": "~/env/scripts/vpn-toggle.sh toggle && pkill -RTMIN+8 waybar",
+    "return-type": "json",
+    "tooltip": true
+  },
+
+  "group/audio": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/mic",
+      "pulseaudio",
+      "custom/audio-toggle"
+    ]
+  },
+
+  "custom/mic": {
+    "exec": "~/env/scripts/mic-status.sh",
+    "interval": 1,
+    "on-click": "~/env/scripts/mic-status.sh toggle",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
+    "tooltip": false,
+    "format": "{text}",
+    "return-type": "json"
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 Muted",
+    "format-icons": {
+      "default": [
+        "󰕿",
+        "󰖀",
+        "󰕾"
+      ]
+    },
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+    "tooltip-format": "Volume: {volume}%\nRight-click: mixer"
+  },
+
+  "custom/audio-toggle": {
+    "exec": "~/env/scripts/toggle-audio.sh",
+    "interval": 1,
+    "on-click": "~/env/scripts/toggle-audio.sh toggle",
+    "return-type": "text",
+    "tooltip": "Click to switch output device"
+  },
+
+  "custom/kb_layout": {
+    "exec": "hyprctl devices -j | jq -r '.keyboards[] | select(.main==true) | .active_keymap' | awk '{print tolower(substr($0,1,2))}'",
+    "interval": 1,
+    "format": " {}",
+    "on-click": "~/env/scripts/cycle-kb.sh",
+    "tooltip-format": "Keyboard layout (click to cycle)"
+  },
+
+  "custom/nightlight": {
+    "exec": "~/env/scripts/nightlight.sh",
+    "return-type": "json",
+    "interval": "once",
+    "signal": 9,
+    "on-click": "~/env/scripts/nightlight.sh toggle && pkill -RTMIN+9 waybar",
+    "tooltip": true
+  },
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 8
+  },
+
+  "custom/power": {
+    "format": "⏻",
+    "tooltip-format": "Power menu",
+    "on-click": "~/env/scripts/power-menu.sh"
+  }
+}

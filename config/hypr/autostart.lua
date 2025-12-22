@@ -1,0 +1,15 @@
+hl.env("GTK_THEME", "Adwaita:dark")
+hl.env("GTK_APPLICATION_PREFER_DARK_THEME", "1")
+
+hl.on("hyprland.start", function()
+    hl.exec_cmd("waybar || true")
+    hl.exec_cmd("hyprpaper || true")
+    hl.exec_cmd("hyprsunset || true")
+    hl.exec_cmd("~/env/scripts/hyprpaper-shuffle.sh")
+    hl.exec_cmd("~/env/scripts/env.sh")
+    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+    hl.exec_cmd("gnome-keyring-daemon --start --components=secrets")
+    hl.exec_cmd("nextcloud")
+    hl.exec_cmd("blueman-applet")
+end)
+
