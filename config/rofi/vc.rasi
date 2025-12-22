@@ -1,0 +1,51 @@
+* {
+    font: "Geist 12";
+
+    bg: rgba(15, 15, 18, 0.88);
+    fg: #e6e6e6;
+    border: rgba(255,255,255,0.08);
+    accent: rgba(122,162,247,0.6);
+}
+
+/* MAIN WINDOW */
+window {
+    background-color: @bg;
+    border: 1px;
+    border-color: @border;
+    border-radius: 16px;
+    width: 420px;
+}
+
+/* MAIN CONTAINER */
+mainbox {
+    padding: 14px;
+    background-color: transparent;
+}
+
+/* INPUT AREA */
+inputbar {
+    children: [prompt, entry];
+    background-color: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 10px;
+    spacing: 8px;
+}
+
+/* PROMPT TEXT */
+prompt {
+    text-color: @fg;
+    background-color: transparent;
+}
+
+/* INPUT FIELD */
+entry {
+    text-color: #ffffff;
+    background-color: transparent;
+    placeholder: "Enter password...";
+    placeholder-color: rgba(255,255,255,0.4);
+}
+
+/* LIST DISABLED (important for dmenu password mode) */
+listview {
+    enabled: false;
+}

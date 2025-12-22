@@ -1,0 +1,45 @@
+* {
+  font-family: "Geist", sans-serif;
+  font-size: 20px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+window#waybar {
+  background: rgba(20, 20, 20, 0.9);
+  color: #eaeaea;
+  border-radius: 0px;
+  min-height: 50px;
+}
+
+#window {
+  padding-left: 10px;
+  min-height: 50px;
+}
+
+#network,
+#pulseaudio {
+  padding: 0 10px;
+}
+
+#pulseaudio.muted {
+  color: #ff6c6c;
+}
+
+#workspaces {
+  margin-left: 5px;
+}
+
+#workspaces button {
+  opacity: 0.6;
+  transition: all 150ms ease;
+}
+
+#workspaces button.active {
+  opacity: 1;
+  background: rgba(122, 162, 247, 0.25);
+}
+
+#workspaces button.occupied {
+  opacity: 0.85;
+}

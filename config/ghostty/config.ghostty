@@ -1,0 +1,39 @@
+theme = Rapture
+
+window-padding-x = 8
+window-padding-y = 8
+window-padding-balance = true
+
+cursor-style = block
+cursor-style-blink = true
+
+mouse-hide-while-typing = true
+
+font-family = Agave Nerd Font Mono
+font-size = 16
+
+copy-on-select = clipboard
+
+scrollback-limit = 100000
+
+shell-integration-features = cursor,sudo,title
+
+confirm-close-surface = false
+window-save-state = always
+
+
+#custom-shader = ~/.config/ghostty/shaders/crt.glsl
+#custom-shader = ~/.config/ghostty/shaders/bloom.glsl
+#custom-shader = ~/.config/ghostty/shaders/cursor_blaze.glsl
+#custom-shader = ~/.config/ghostty/shaders/bettercrt.glsl
+#custom-shader = ~/.config/ghostty/shaders/tft.glsl
+
+
+custom-shader-animation = always
+
+keybind = ctrl+shift+u=scroll_page_up
+keybind = ctrl+shift+d=scroll_page_down
+
+keybind = ctrl+shift+j=scroll_page_lines:1
+keybind = ctrl+shift+k=scroll_page_lines:-1
+
