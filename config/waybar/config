@@ -1,0 +1,70 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+
+  "output": [
+    "DP-1",
+    "HDMI-A-1"
+  ],
+
+  "modules-left": [
+    "hyprland/window"
+  ],
+  
+  "modules-center": [
+    "clock"
+  ],
+
+  "modules-right": [
+    "tray",
+    "network",
+    "pulseaudio",
+    "custom/audio-toggle"
+  ],
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 8
+  },
+
+  "hyprland/window": {
+    "format": "{title}",
+    "rewrite": {
+      "(.*)": "$1"
+    }
+  },
+  "clock": {
+    "format": "{:%H:%M}",
+    "interval": 60,
+    "tooltip-format": "<big>{:%Y %B %d}</big>\n<tt><small>{calendar}</small></tt>"  // Optional tooltip with date/calendar
+  },
+  
+  "network": {
+    "format-wifi": "󰤨  {essid}",
+    "format-ethernet": "󰈀  Wired",
+    "format-disconnected": "󰤭  Disconnected",
+    "tooltip": true
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟  Muted",
+    "on-click": "pavucontrol",
+    "icons": {
+      "default": [
+        "󰕿",
+        "󰖀",
+        "󰕾"
+      ]
+    }
+  },
+  "custom/audio-toggle": {
+    "exec": "~/env/scripts/toggle-audio.sh",
+    "interval": 2,
+    "on-click": "~/env/scripts/toggle-audio.sh toggle",
+    "return-type": "text",
+    "tooltip": "Click to toggle audio output"
+  }
+}
+
