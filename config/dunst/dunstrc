@@ -1,0 +1,67 @@
+[global]
+    monitor = 1
+    follow = none
+    origin = top-center
+    width = 500
+    height = 300
+    scale = 0
+    notification_limit = 5
+    progress_bar = true
+    progress_bar_height = 10
+    progress_bar_frame_width = 0
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
+    indicate_hidden = yes
+    transparency = 8
+    separator_height = 1
+    separator_color = frame
+    padding = 14
+    horizontal_padding = 14
+    text_icon_padding = 10
+    frame_width = 2
+    frame_color = "#7aa2f7"
+    corner_radius = 14
+    gap_size = 8
+    sort = yes
+    font = Geist 14
+    line_height = 2
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+    ellipsize = middle
+    show_age_threshold = 60
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+    icon_position = left
+    min_icon_size = 32
+    max_icon_size = 64
+    icon_theme = Tela-black-dark
+    sticky_history = yes
+    history_length = 20
+    dmenu = fuzzel --dmenu
+    browser = xdg-open
+    title = Dunst
+    class = Dunst
+    mouse_left_click = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
+
+[urgency_low]
+    background = "#141414"
+    foreground = "#b3b3b3"
+    frame_color = "#3a3a3a"
+    timeout = 4
+
+[urgency_normal]
+    background = "#141414"
+    foreground = "#eaeaea"
+    frame_color = "#7aa2f7"
+    timeout = 7
+
+[urgency_critical]
+    background = "#1a1414"
+    foreground = "#eaeaea"
+    frame_color = "#ff6c6c"
+    timeout = 0

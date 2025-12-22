@@ -1,0 +1,318 @@
+@define-color bg              rgba(12, 12, 15, 0.92);
+@define-color pill-bg         rgba(16, 16, 19, 0.98);
+@define-color pill-bg-hover   rgba(30, 30, 36, 0.98);
+
+@define-color fg              #eaeaea;
+@define-color fg-dim          #9a9aa5;
+
+@define-color accent-blue     #7aa2f7;
+@define-color accent-purple   #9575cd;
+@define-color accent-green    #8bd49c;
+@define-color accent-red      #ff6c6c;
+@define-color accent-yellow   #e0af68;
+
+* {
+  font-family: "Geist", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  min-height: 0;
+}
+
+window#waybar {
+  background: transparent;
+  color: @fg;
+}
+
+/* =========================================================
+ * SHARED PILL
+ * ========================================================= */
+
+#custom-launcher,
+#workspaces,
+#window,
+#mpris,
+#sysinfo,
+#custom-weather,
+#connectivity,
+#audio,
+#custom-kb_layout,
+#custom-nightlight,
+#tray,
+#custom-power,
+#group-time {
+  background-color: @pill-bg;
+  border-radius: 14px;
+  padding: 0 12px;
+  margin: 0;
+}
+
+/* =========================================================
+ * LAUNCHER
+ * ========================================================= */
+
+#custom-launcher {
+  color: @accent-blue;
+  font-size: 16px;
+  padding: 0 14px;
+}
+
+#custom-launcher:hover {
+  background-color: @pill-bg-hover;
+}
+
+/* =========================================================
+ * WORKSPACES
+ * ========================================================= */
+
+#workspaces {
+  padding: 0 6px;
+}
+
+#workspaces button {
+  color: @fg-dim;
+  padding: 0 8px;
+  margin: 4px 2px;
+  border-radius: 10px;
+  opacity: 1;
+  transition: all 150ms ease;
+}
+
+#workspaces button.active {
+  color: @bg;
+  background-color: @accent-blue;
+  font-weight: 700;
+}
+
+#workspaces button.occupied {
+  color: @fg;
+}
+
+#workspaces button:hover {
+  background-color: @pill-bg-hover;
+  color: @fg;
+}
+
+/* =========================================================
+ * WINDOW TITLE
+ * ========================================================= */
+
+#window {
+  color: @fg-dim;
+  font-weight: 400;
+}
+
+/* =========================================================
+ * CENTER / TIME PILL
+ * ========================================================= */
+
+.modules-center {
+  background-color: @pill-bg;
+  border-radius: 14px;
+  padding: 0 12px;
+  margin: 0;
+}
+
+/* Clock */
+.modules-center #clock {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0 10px 0 10px;
+  margin: 0;
+  color: @fg;
+  font-weight: 600;
+}
+
+/* Stopwatch */
+.modules-center #custom-stopwatch {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0 10px 0 4px;
+  margin: 0;
+  color: @fg-dim;
+  font-weight: 600;
+}
+
+/* Timer */
+.modules-center #custom-timer {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0 4px 0 10px;
+  margin: 0;
+  color: @fg-dim;
+  font-weight: 600;
+}
+
+.modules-center #custom-timer.active, .modules-center #custom-stopwatch.active {
+  color: @accent-purple;
+}
+
+.modules-center #custom-timer.inactive #custom-stopwatch.inactive {
+  color: @fg-dim;
+}
+
+
+/* =========================================================
+ * MEDIA
+ * ========================================================= */
+
+#mpris {
+  color: @accent-purple;
+}
+
+/* =========================================================
+ * SYSTEM INFO
+ * ========================================================= */
+
+#sysinfo {
+  padding: 0 12px;
+  color: @fg-dim;
+}
+
+#cpu {
+  color: @fg-dim;
+}
+
+#memory {
+  color: @fg-dim;
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* =========================================================
+ * WEATHER
+ * ========================================================= */
+
+#custom-weather {
+  color: @accent-yellow;
+}
+
+/* =========================================================
+ * CONNECTIVITY
+ * ========================================================= */
+
+#connectivity {
+  padding: 0 12px;
+}
+
+#network {
+  color: @fg-dim;
+}
+
+#network.disconnected {
+  color: @accent-red;
+}
+
+#bluetooth {
+  color: @fg-dim;
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#bluetooth.connected {
+  color: @accent-blue;
+}
+
+#custom-vpn {
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* =========================================================
+ * AUDIO
+ * ========================================================= */
+
+#audio {
+  padding: 0 12px;
+}
+
+#custom-mic {
+  color: @fg;
+}
+
+#pulseaudio {
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  color: @fg;
+}
+
+#pulseaudio.muted,
+#custom-mic.muted {
+  color: @accent-red;
+}
+
+#custom-audio-toggle {
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  color: @accent-purple;
+  font-weight: 600;
+}
+
+/* =========================================================
+ * KEYBOARD LAYOUT
+ * ========================================================= */
+
+#custom-kb_layout {
+  color: @fg-dim;
+  font-weight: 700;
+}
+
+/* =========================================================
+ * NIGHTLIGHT
+ * ========================================================= */
+
+#custom-nightlight {
+  color: @fg-dim;
+}
+
+/* =========================================================
+ * TRAY
+ * ========================================================= */
+
+#tray {
+  padding: 0 10px;
+}
+
+#tray menu {
+  background-color: #1a1a1e;
+  border-radius: 10px;
+}
+
+/* =========================================================
+ * POWER
+ * ========================================================= */
+
+#custom-power {
+  color: @accent-red;
+  font-size: 15px;
+  padding: 0 14px;
+}
+
+#custom-power:hover {
+  background-color: @accent-red;
+  color: @bg;
+}
+
+/* =========================================================
+ * TOOLTIPS
+ * ========================================================= */
+
+tooltip {
+  background-color: rgba(20, 20, 24, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+}
+
+tooltip label {
+  color: @fg;
+  padding: 2px;
+}

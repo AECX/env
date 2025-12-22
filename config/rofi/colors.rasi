@@ -1,0 +1,25 @@
+/*
+ * Shared design tokens for rofi menus.
+ * Mirrors the palette used in config/waybar/style.css so the launcher,
+ * power menu, and bar all read as one design language.
+ */
+* {
+    bg:             #0e0e11f7;
+    bg-raised:      #17171ce0;
+    bg-alt:         #1c1c22f5;
+    fg:             #f2f2f5;
+    fg-dim:         #8b8b97;
+
+    accent:         #7aa2f7;
+    accent-soft:    #7aa2f726;
+    accent-purple:  #9575cd;
+    accent-green:   #8bd49c;
+    accent-red:     #ff6c6c;
+    accent-yellow:  #e0af68;
+
+    border-color:   #ffffff1c;
+    border-strong:  #ffffff24;
+    scrim:          #06060994;
+
+    on-accent:      #0d1017;
+}

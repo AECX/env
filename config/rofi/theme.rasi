@@ -1,0 +1,116 @@
+/*
+ * App launcher (drun).
+ * A single floating command-palette card: search row on top, hairline
+ * divider, result list below. Matches the waybar pill aesthetic.
+ */
+@import "colors.rasi"
+
+configuration {
+    show-icons:                  true;
+    drun-display-format:         "{name}";
+    display-drun:                "󰍉";
+}
+
+* {
+    font:                        "Agave Nerd Font 12";
+}
+
+/*****----- Card -----*****/
+window {
+    width:                       620px;
+    location:                    center;
+    anchor:                      center;
+    border-radius:               20px;
+    border:                      1px;
+    border-color:                var(border-strong);
+    background-color:            var(bg);
+    cursor:                      "default";
+}
+
+mainbox {
+    background-color:            transparent;
+    spacing:                     0px;
+    children:                    [ "inputbar", "listview" ];
+}
+
+/*****----- Search row -----*****/
+inputbar {
+    background-color:            transparent;
+    text-color:                  var(fg);
+    padding:                     17px 20px;
+    spacing:                     13px;
+    border:                      0px 0px 1px 0px;
+    border-color:                var(border-color);
+    children:                    [ "prompt", "entry" ];
+}
+prompt {
+    background-color:            transparent;
+    text-color:                  var(accent);
+    font:                        "GeistMono Nerd Font Propo 14";
+    vertical-align:              0.5;
+    padding:                     0px 2px 0px 0px;
+}
+entry {
+    background-color:            transparent;
+    text-color:                  var(fg);
+    placeholder:                 "Search applications";
+    placeholder-color:           var(fg-dim);
+    font:                        "GeistMono Nerd Font 14";
+    vertical-align:              0.5;
+    cursor:                      text;
+}
+
+/*****----- Results -----*****/
+listview {
+    background-color:            transparent;
+    columns:                     1;
+    lines:                       8;
+    spacing:                     2px;
+    padding:                     10px;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    fixed-height:                false;
+    cursor:                      "default";
+}
+
+element {
+    background-color:            transparent;
+    text-color:                  var(fg-dim);
+    border-radius:               12px;
+    padding:                     9px 12px;
+    spacing:                     13px;
+    cursor:                      pointer;
+}
+element normal.normal,
+element alternate.normal {
+    background-color:            transparent;
+    text-color:                  var(fg-dim);
+}
+element selected.normal {
+    background-color:            var(accent-soft);
+    text-color:                  var(accent);
+}
+element-icon {
+    background-color:            transparent;
+    size:                        25px;
+    vertical-align:              0.5;
+}
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    font:                        "GeistMono Nerd Font 13";
+    vertical-align:              0.5;
+}
+
+/*****----- Message (errors / no match) -----*****/
+message {
+    background-color:            transparent;
+    padding:                     14px 20px;
+}
+textbox {
+    background-color:            transparent;
+    text-color:                  var(fg-dim);
+    font:                        "GeistMono Nerd Font 12";
+    vertical-align:              0.5;
+}
